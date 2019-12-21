@@ -9,3 +9,4 @@ Examples:
 plt.figure(); plot(0,2,2,0,1,1, name1=r'$\mathrm{6s6d{}^1D_2}$', name2=r'$\mathrm{6s6p{}^1P_1}$')
 plt.figure(); plot(1,0,1,1,1,2, name1=r'$\mathrm{6s7s{}^3S_1}$', name2=r'$\mathrm{6s6p{}^3P_2}$')
 ```
+Outputs: green.png; yellow.png.
