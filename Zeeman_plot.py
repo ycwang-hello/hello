@@ -41,7 +41,7 @@ def plot(s1, l1, j1, s2, l2, j2, name1='', name2='', nl1 = '', nl2 = '', detail=
 #                plt.arrow(n*dx, DE+de1, 0, -length, color='b', width=length*0.0005, head_width = length*0.007, head_length=length*0.07, length_includes_head=True)
                 plt.arrow(n*dx, DE+de1, 0, -length, color='b', width=0.005, head_width = 0.08, head_length=DE*0.15, length_includes_head=True)
                 plt.text(n*dx, -DE+de2s[0]-g2, polar, horizontalalignment='center')
-                plt.text(n*dx, -DE+de2s[0]-2*g2, np.round(de2-de1), horizontalalignment='center')
+                plt.text(n*dx, -DE+de2s[0]-2*g2, np.round(de2-de1, 3), horizontalalignment='center')
                 d_nu_s.append(de2-de1)
                 polars.append(polar)
                 
