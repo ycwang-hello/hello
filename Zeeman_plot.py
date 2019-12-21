@@ -41,7 +41,7 @@ def plot(s1, l1, j1, s2, l2, j2, name1='', name2='', nl1 = '', nl2 = '', detail=
 #                plt.arrow(n*dx, DE+de1, 0, -length, color='b', width=length*0.0005, head_width = length*0.007, head_length=length*0.07, length_includes_head=True)
                 plt.arrow(n*dx, DE+de1, 0, -length, color='b', width=0.005, head_width = 0.08, head_length=DE*0.15, length_includes_head=True)
                 plt.text(n*dx, -DE+de2s[0]-g2, polar, horizontalalignment='center')
-                plt.text(n*dx, -DE+de2s[0]-2*g2, de2-de1, horizontalalignment='center')
+                plt.text(n*dx, -DE+de2s[0]-2*g2, np.round(de2-de1), horizontalalignment='center')
                 d_nu_s.append(de2-de1)
                 polars.append(polar)
                 
@@ -69,25 +69,25 @@ def plot(s1, l1, j1, s2, l2, j2, name1='', name2='', nl1 = '', nl2 = '', detail=
     for de1, m1 in zip(de1s, m1s):
         plt.plot([-1, 0], [DE, DE+de1], '--',color='b')
         plt.text(xm, DE+de1, m1, verticalalignment='center', horizontalalignment='center')
-        plt.text(xmg, DE+de1, de1, verticalalignment='center', horizontalalignment='center')
+        plt.text(xmg, DE+de1, np.round(de1, 3), verticalalignment='center', horizontalalignment='center')
     for de2, m2 in zip(de2s, m2s):
         plt.plot([-1, 0], [-DE, -DE+de2], '--',color='b')
         plt.text(xm, -DE+de2, m2, verticalalignment='center', horizontalalignment='center')
-        plt.text(xmg, -DE+de2, de2, verticalalignment='center', horizontalalignment='center')
+        plt.text(xmg, -DE+de2, np.round(de2, 3), verticalalignment='center', horizontalalignment='center')
     
     #original energy level names
     plt.text((left-1)/2, DE+0.3, name1, horizontalalignment='center')
     plt.text((left-1)/2, -DE+0.3, name2, horizontalalignment='center')    
-    plt.text((left-1)/2, DE-0.3, '$S={}, L={}, J={}, g={}$'.format(s1, l1, j1, g1), horizontalalignment='center',verticalalignment='top')    
-    plt.text((left-1)/2, -DE-0.3, '$S={}, L={}, J={}, g={}$'.format(s2, l2, j2, g2), horizontalalignment='center',verticalalignment='top')    
+    plt.text((left-1)/2, DE-0.3, '$S={}, L={}, J={}, g={}$'.format(s1, l1, j1, np.round(g1, 3)), horizontalalignment='center',verticalalignment='top')    
+    plt.text((left-1)/2, -DE-0.3, '$S={}, L={}, J={}, g={}$'.format(s2, l2, j2, np.round(g2, 3)), horizontalalignment='center',verticalalignment='top')    
     
     #plot split d 
     plt.annotate('',((n-0.3)*dx, DE+de1s[-1]), xytext=((n-0.3)*dx, DE+de1s[-2]),
                  arrowprops=dict(facecolor='black',arrowstyle='<->'))
-    plt.text((n-0.1)*dx, DE+de1s[-1]-g1/2,'${}\\mu_BB$'.format(g1), verticalalignment='center')
+    plt.text((n-0.1)*dx, DE+de1s[-1]-g1/2,'${}\\mu_BB$'.format(np.round(g1, 3)), verticalalignment='center')
     plt.annotate('',((n-0.3)*dx, -DE+de2s[-1]), xytext=((n-0.3)*dx, -DE+de2s[-2]),
                  arrowprops=dict(facecolor='black',arrowstyle='<->'))
-    plt.text((n-0.1)*dx, -DE+de2s[-1]-g2/2,'${}\\mu_BB$'.format(g2), verticalalignment='center')
+    plt.text((n-0.1)*dx, -DE+de2s[-1]-g2/2,'${}\\mu_BB$'.format(np.round(g2, 3)), verticalalignment='center')
     
     plt.axis('off')
     
@@ -100,13 +100,15 @@ def plot(s1, l1, j1, s2, l2, j2, name1='', name2='', nl1 = '', nl2 = '', detail=
         polars = polars[idx]
         nline = len(d_nu_s)
         line_l = n/2*dx-nline*dx/2
+        line_m = n/2*dx
         plt.hlines(low-4, line_l, line_l+nline*dx)
 #        for i, d_nu in zip(range(nline),d_nu_s):
-        linexs = line_l+dx/2+dx*np.arange(nline)
+#        linexs = line_l+dx/2+dx*np.arange(nline)
+        linexs = line_m+d_nu_s/(np.max(d_nu_s)-np.min(d_nu_s))*(nline-1)*dx
         plt.vlines(linexs, low-4, low-2)
         for x, polar, d_nu in zip(linexs, polars, d_nu_s):
             plt.text(x, low-2+0.3, polar,horizontalalignment='center')
-            plt.text(x, low-4-0.3, d_nu,horizontalalignment='center', verticalalignment='top')
+            plt.text(x, low-4-0.3, np.round(d_nu, 3), horizontalalignment='center', verticalalignment='top')
         plt.text(line_l-dx, low-4-0.3, '$\\Delta\\tilde{\\nu}/\\tilde{L}$', horizontalalignment='center', verticalalignment='top')
     
         plt.ylim(low-5, high)
@@ -140,4 +142,6 @@ if __name__ == '__main__':
 #    prompt()
 #    plot(1,0,1,1,1,2, name1=r'$\mathrm{6s7s{}^3S_1}$', name2=r'$\mathrm{6s6p{}^3P_2}$')
 #    plt.figure()
-    plot(0,2,2,0,1,1, name1=r'$\mathrm{6s6d{}^1D_2}$', name2=r'$\mathrm{6s6p{}^1P_1}$')
+#    plot(0,2,2,0,1,1, name1=r'$\mathrm{6s6d{}^1D_2}$', name2=r'$\mathrm{6s6p{}^1P_1}$')
+    plot(1/2, 1, 1/2, 1/2, 0, 1/2, name1=r'${}^2P_{1/2}$', name2=r'${}^2S_{1/2}$')
+    
