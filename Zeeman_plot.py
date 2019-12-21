@@ -41,8 +41,8 @@ def plot(s1, l1, j1, s2, l2, j2, name1='', name2='', nl1 = '', nl2 = '', detail=
 #                plt.arrow(n*dx, DE+de1, 0, -length, color='b', width=length*0.0005, head_width = length*0.007, head_length=length*0.07, length_includes_head=True)
                 plt.arrow(n*dx, DE+de1, 0, -length, color='b', width=0.005, head_width = 0.08, head_length=DE*0.15, length_includes_head=True)
                 plt.text(n*dx, -DE+de2s[0]-g2, polar, horizontalalignment='center')
-                plt.text(n*dx, -DE+de2s[0]-2*g2, np.round(de2-de1, 3), horizontalalignment='center')
-                d_nu_s.append(de2-de1)
+                plt.text(n*dx, -DE+de2s[0]-2*g2, np.round(de1-de2, 3), horizontalalignment='center')
+                d_nu_s.append(de1-de2)
                 polars.append(polar)
                 
                 n+=1
@@ -143,5 +143,6 @@ if __name__ == '__main__':
 #    plot(1,0,1,1,1,2, name1=r'$\mathrm{6s7s{}^3S_1}$', name2=r'$\mathrm{6s6p{}^3P_2}$')
 #    plt.figure()
 #    plot(0,2,2,0,1,1, name1=r'$\mathrm{6s6d{}^1D_2}$', name2=r'$\mathrm{6s6p{}^1P_1}$')
-    plot(1/2, 1, 1/2, 1/2, 0, 1/2, name1=r'${}^2P_{1/2}$', name2=r'${}^2S_{1/2}$')
+#    plot(1/2, 1, 1/2, 1/2, 0, 1/2, name1=r'${}^2P_{1/2}$', name2=r'${}^2S_{1/2}$')
+    plot(1/2, 1, 3/2, 1/2, 0, 1/2, name1=r'${}^2P_{3/2}$', name2=r'${}^2S_{1/2}$')
     
