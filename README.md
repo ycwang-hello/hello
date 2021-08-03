@@ -24,3 +24,9 @@ plt.figure(); plot(1,0,1,1,1,2, name1=r'$\mathrm{6s7s{}^3S_1}$', name2=r'$\mathr
 ```
 
 Outputs: green.png; yellow.png.
+
+# Astrometry
+
+## SR Doppler Aberration
+
+在狭义相对论框架下演示多普勒效应和光行差。
