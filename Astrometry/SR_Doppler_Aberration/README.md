@@ -6,7 +6,7 @@
 
 ![SR_Doppler_aberration_full_1](SR_Doppler_aberration_full_1.gif)
 
-### Code to generate Vedio 1
+### Code to generate Video 1
 
 SR_Doppler_aberration.py
 
