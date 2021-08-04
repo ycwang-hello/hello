@@ -1,12 +1,18 @@
-## Doppler Effect and Aberration
+# Doppler Effect and Aberration
 
 警告：以下内容只代表本人目前的理解，不保证没有错误。如果发现错误，请与作者联系。
 
-### Video 1
+## Video 1
 
-![SR_Dopller_aberration_full_1](SR_Dopller_aberration_full_1.gif)
+![SR_Doppler_aberration_full_1](SR_Doppler_aberration_full_1.gif)
 
-#### Brief Introduction
+### Code to generate Vedio 1
+
+SR_Doppler_aberration.py
+
+其中部分参数（尤其是`beta`）可以修改，观察不同情况的图。
+
+### Brief Introduction
 
 视频为观测者所在参考系（以下暂且简称“观者系”）$\Sigma$​在不同时刻的空间（同时面）。观测者和恒星均做惯性运动。恒星所在惯性系（以下简称“光源系”）$\Sigma'$​在$t=t'=0$​时与$\Sigma$​系重合，且在$\Sigma$​系中以速度$v$​沿$x$​轴正方向运动。恒星在$\Sigma'$​系原点$O'$​​处。观测者在观者系中的任意位置。不加说明时，“观者”默认为观者系中的观者。
 
@@ -44,10 +50,10 @@
 - 在观者系中，同一时刻发出的光子所在曲面、等相位面仍然是球面，这是光速不变的结果。因此等相位面是以光源发出这个面上的光子时所在的位置为圆心的球面。这个图像很类似于牛顿力学中，因波源相对于介质移动而导致的多普勒效应，牛顿力学中波长被压缩或拉长是绝对的。
 - 一个光子的红移不会随着传播而改变；它相对光源的方位角不变（否则在光源系里光就拐弯了）。甚至可以自己脑补出把这个图变换回光源系的过程（光源系的等相位面图为同心圆，相当于在轴线上看一个圆锥面，换一个角度，偏离轴线观察锥面应该就是此图）。
 
-#### Detailed Derivation
+### Detailed Derivation
 
 说不定哪天作者高兴就写了。
 
-### Figure 1
+## Figure 1
 
 说不定哪天作者又画个图。
