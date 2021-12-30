@@ -305,12 +305,13 @@ if show_k:
                   color='red', label='$\\vec{k}$')#, scale=.01)
 
 ax.legend()
-src = Source(x=0, y=0, v=beta*c, c=c, f=freq*c, wflife=12, ax=ax, theta=0, show_wf_v=False)#np.pi/4)
+src = Source(x=beta*cts[0], y=0, v=beta*c, c=c, f=freq*c, wflife=12, ax=ax, theta=0, show_wf_v=False)#np.pi/4)
 
 def update(ct):
     vt = beta*ct
     global isophase, z_contour, z_clabel
-    src.update(dct)
+    if ct != cts[0]: #for the first time ct, do not update
+        src.update(dct)
     src.ax.set_title('$\\beta={:.2f},\\ ct={:.2f}$'.format(beta, ct))
     if show_z:
         for coll in z_contour.collections:
