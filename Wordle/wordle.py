@@ -25,6 +25,8 @@ Black (b): This letter is not in this word in any spot.
 
 ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
 
+with open('morewords.txt') as f:
+    morewords = eval(f.read())
 with open('engword.txt') as f:
     words = eval(f.read())
 wordlist = np.array(words)
@@ -58,7 +60,7 @@ while True:
         for i in range(guess_n):
             while True:
                 guess = input(f'Your {ordinal(i+1)} try: >>> ')
-                if guess in wordlist:
+                if guess in wordlist or guess in morewords:
                     break
                 else:
                     print(f'Word "{guess}" does not exit or is not a five letter word.')
@@ -93,7 +95,7 @@ while True:
                     guess = input(f'input your {ordinal(i+1)} guess, or "s" to suggest one for you: >>> ')
                     if guess == 's':
                         print('My suggestion is:', wordlist[word_left][np.argmax(word_score[word_left])]+'.', onlyone)
-                    elif guess in wordlist:
+                    elif guess in wordlist or guess in morewords:
                         break
                     else:
                         print(f'Word "{guess}" does not exit or is not a five letter word.')
